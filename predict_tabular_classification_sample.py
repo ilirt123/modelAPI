@@ -21,8 +21,8 @@ from google.protobuf.struct_pb2 import Value
 
 
 def predict_tabular_classification_sample(
-    project="486808173175",
-    endpoint_id="1049492644805214208",
+    project: str,
+    endpoint_id: str,
     instance_dict: Dict,
     location: str = "us-central1",
     api_endpoint: str = "us-central1-aiplatform.googleapis.com",
@@ -39,7 +39,7 @@ def predict_tabular_classification_sample(
     parameters_dict = {}
     parameters = json_format.ParseDict(parameters_dict, Value())
     endpoint = client.endpoint_path(
-        project=project, location=location, endpoint=endpoint_id
+        project="486808173175", location="us-central1", endpoint="1049492644805214208",
     )
     response = client.predict(
         endpoint=endpoint, instances=instances, parameters=parameters
